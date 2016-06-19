@@ -1,0 +1,47 @@
+{
+  "name": "waapi-transforms",
+  "version": "0.0.0",
+  "description": "Web Animations API Transforms Visualisation Experiment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "webpack --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/waapi/transforms.git"
+  },
+  "keywords": [
+    "waapi",
+    "web animations",
+    "animations",
+    "transforms",
+    "sandbox",
+    "tool"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.1.2",
+    "localforage": "^1.4.2",
+    "react": "^15.0.1",
+    "react-codemirror": "^0.2.6",
+    "react-dom": "^15.0.1",
+    "react-hot-loader": "^3.0.0-beta.1",
+    "react-notification-center": "^1.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.3.17",
+    "babel-core": "^6.3.17",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015-loose": "^6.1.3",
+    "babel-preset-react": "6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "file-loader": "^0.8.5",
+    "node-libs-browser": "^0.5.2",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.12.3",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.9.11",
+    "webpack-dev-server": "^1.9.0"
+  }
+}

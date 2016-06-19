@@ -1,0 +1,115 @@
+div.editor {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+}
+
+div.editor header {
+	position: relative;
+	padding: 2px 10px;
+	/*background: hsl(0, 0%, 95%);*/
+	font: 200 12px/1.2 sans-serif;
+	color: hsl(0, 0%, 20%);
+	letter-spacing: 0.1em;
+}
+
+
+div.editor span.mode {
+	position: absolute;
+	top: 2px;
+	right: 10px;
+}
+
+
+div.editor div.ReactCodeMirror {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+	flex: 1 1 100%;
+	padding: 0 10px;
+	/*-webkit-filter: grayscale(1);
+	filter: grayscale(1);*/
+}
+
+div.editor div.ReactCodeMirror--focused {
+	/*-webkit-filter: none;
+	filter: none;*/
+}
+
+div.editor .CodeMirror {
+	flex: 1 1 100%;
+	height: auto;
+	font: 14px/1.5 SourceCodeProRegular, Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+	/*background: hsl(0, 0%, 96%);*/
+}
+
+div.editor .CodeMirror-sizer {
+	/*background: white;*/
+}
+
+
+div.editor .CodeMirror-selected:nth-child(1) {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+div.editor .CodeMirror-selected:nth-child(2) {
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+div.editor .CodeMirror-selected:only-child {
+	border-radius: 2px;
+}
+
+
+div.editor .CodeMirror * {
+    /*box-sizing: content-box;*/
+}
+
+div.editor .CodeMirror {
+	contain: strict;
+}
+div.editor .CodeMirror-scroll,
+div.editor .CodeMirror-selected,
+div.editor .CodeMirror-cursors,
+div.editor .CodeMirror-code,
+div.editor .CodeMirror-linenumber {
+	contain: size layout style;
+}
+
+div.editor .CodeMirror-line {
+	contain: content;
+}
+
+div.editor .CodeMirror-scroll {
+	/*margin-bottom: 0px;
+	margin-right: 0px;
+	padding-bottom: 0px;*/
+	backface-visibility: hidden;
+}
+
+
+div.editor .CodeMirror-focused {
+	/*background: hsl(0, 0%, 100%);*/
+}
+
+div.editor .CodeMirror-gutters {
+	background: none;
+}
+
+div.editor .CodeMirror-selected {
+	background: hsl(210, 0%, 83%);
+}
+
+div.editor div.ReactCodeMirror--focused .CodeMirror-selected {
+	background-color: hsla(215, 100%, 75%, 0.5);
+}
+
+div.editor .CodeMirror textarea {
+	overflow: hidden;
+}
+
+div.editor .CodeMirror-sizer + div {
+	visibility: hidden;
+}
