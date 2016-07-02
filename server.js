@@ -5,7 +5,7 @@ var config = require('./webpack.config');
 config.devtool = 'eval';
 config.entry.splice(config.entry.indexOf('./index.prod'), 1, './index.dev');
 config.entry.unshift(
-    'webpack-dev-server/client?http://localhost:6755',
+    'webpack-dev-server/client?http://localhost:6756',
     'webpack/hot/only-dev-server',
     'react-hot-loader/patch'
 );
@@ -20,8 +20,8 @@ new WebpackDevServer(webpack(config), {
     stats: {
         colors: true
     }
-}).listen(6755, 'localhost', function (err) {
+}).listen(6756, 'localhost', function (err) {
     if(err) console.log(err);
     
-    console.log('Listening at localhost:6755');
+    console.log('Listening at localhost:6756');
 });

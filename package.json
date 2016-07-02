@@ -22,11 +22,16 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.1.2",
+    "gl-mat4": "^1.1.4",
+    "gl-quat": "^1.0.0",
+    "gl-vec3": "^1.0.3",
     "localforage": "^1.4.2",
+    "mat4-decompose": "^1.0.4",
     "react": "^15.0.1",
     "react-codemirror": "^0.2.6",
     "react-dom": "^15.0.1",
     "react-hot-loader": "^3.0.0-beta.1",
+    "react-input-autosize": "^1.0.0",
     "react-notification-center": "^1.2.1"
   },
   "devDependencies": {
