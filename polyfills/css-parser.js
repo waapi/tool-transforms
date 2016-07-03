@@ -3,7 +3,7 @@ class CSSParser {
 	static transform(string) {
 		if(!string) return null;
 		
-		var number = '[+-]?\\d+?(?:\\.\\d+)?';
+		var number = '[+-]?(?:\\d+\\.\\d+|\\.?\\d+)(?:e\\d+)?';
 		
 		var length = `${number}(px|em|ex|rem|vw|vh|vmin|vmax|in|cm|mm|pt|pc)`;
 		var percent = `${number}(%)`;
@@ -64,12 +64,21 @@ class CSSParser {
 			
 			else // Some functions have tuples of [value, unit]
 			{
-				values = values.slice(1).reduce((prev, value, index) => {
-					if(index%2) prev[prev.length - 1].push(value);
-					else prev.push([parseFloat(value)]);
-					return prev;
-				}, []);
-				// .map((value, index) => index%2? value : parseFloat(value));
+				values = (values => {
+					var temp = [];
+					for(var iter = 0, total = values.length; iter < total; iter += 2)
+					{
+						var value = values[iter];
+						var unit = values[iter + 1];
+						if(typeof value === 'string')
+						{
+							var pair = [parseFloat(value), unit];
+							temp.push(pair);
+						}
+						else return temp;
+					}
+					return temp;
+				})(values.slice(1));
 				
 				switch(name) {
 					case 'translate':
@@ -121,8 +130,8 @@ class CSSParser {
 			case 'vmin': return value * Math.min(window.innerWidth, window.innerHeight) / 100;
 			case 'vmax': return value * Math.max(window.innerWidth, window.innerHeight) / 100;
 			case 'in': return value * 72;
-			case 'cm': return value / 2.54 * 72;
-			case 'mm': return value / 2.54 * 72 / 10;
+			case 'cm': return value / 2.54 * 96;
+			case 'mm': return value / 2.54 * 96 / 10;
 			case 'pt': return value * 96 / 72;
 			case 'pc': return value * CSSParser.base[cardinal];
 			case 'deg': return value * 0.017453292519943295;
